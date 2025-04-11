@@ -1,0 +1,17 @@
+/* StarRating.module.css */
+
+.starContainer {
+    display: flex;
+    gap: 5px;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+  
+  .filledStar {
+    color: gold;
+  }
+  
+  .emptyStar {
+    color: lightgray;
+  }
+  
