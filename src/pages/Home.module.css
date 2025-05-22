@@ -22,8 +22,8 @@
 
 
 .reviewButton {
-  background-color: #1e90ff;
-  color: white;
+  background-color: #f5c518;
+  color: rgb(0, 0, 0);
   padding: 0.8rem 1.6rem;
   border: none;
   border-radius: 8px;
@@ -34,4 +34,5 @@
 
 .reviewButton:hover {
   background-color: #0b66c2;
+  color: white;
 }

@@ -1,33 +1,47 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import styles from './AddReview.module.css';
 import StarRating from '../components/StarRating';
 
-const AddReview = ({ addReview }) => {
+const AddReview = () => {
   const [title, setTitle] = useState('');
   const [reviewer, setReviewer] = useState('');
+  const [userId, setUserId] = useState(''); // Optional: Set your test user ID
+  const [reviewText, setReviewText] = useState('');
   const [rating, setRating] = useState(0);
-  const [review, setReview] = useState('');
-  const navigate = useNavigate();
+  const [message, setMessage] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const newReview = {
-      id: Date.now(),
-      title,
-      reviewer,
-      rating,
-      review,
-    };
+    try {
+      const response = await fetch('http://localhost:500/api/reviews/add', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ title, reviewer, userId, reviewText, rating }),
+      });
 
-    addReview(newReview);
-    navigate('/reviews');
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.msg || 'Failed to add review');
+      }
+
+      setMessage('Review added successfully!');
+      setTitle('');
+      setReviewer('');
+      setReviewText('');
+      setRating(0);
+    } catch (error) {
+      console.error('Error submitting review:', error);
+      setMessage('Error submitting review');
+    }
   };
 
   return (
     <div className={styles.formContainer}>
-      <h2>Add Movie Review</h2>
+      <h2>Add a Review</h2>
       <form onSubmit={handleSubmit} className={styles.reviewForm}>
         <input
           type="text"
@@ -43,20 +57,19 @@ const AddReview = ({ addReview }) => {
           onChange={(e) => setReviewer(e.target.value)}
           required
         />
-        
-        <label>Rating:</label>
-        <StarRating rating={rating} setRating={setRating} />
-
         <textarea
           placeholder="Your Review"
-          value={review}
-          onChange={(e) => setReview(e.target.value)}
+          value={reviewText}
+          onChange={(e) => setReviewText(e.target.value)}
           required
         />
-        <button> Movie Details (Optional) </button>
-        <p type = "description"> Spare a moment to give details about the movie </p>
-        <button type="submit">Submit Review</button>
+        <div>
+          <label>Rating:</label>
+          <StarRating rating={rating} setRating={setRating} />
+        </div>
+        <button type="submit">Submit</button>
       </form>
+      {message && <p>{message}</p>}
     </div>
   );
 };

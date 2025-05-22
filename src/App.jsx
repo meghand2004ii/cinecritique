@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import AddReview from './pages/AddReview';
 import MoviesReview from './pages/MoviesReview';
 import MovieDetails from './pages/MovieDetails';
+import Login from './pages/Login';
 
 const App = () => {
   const [reviews, setReviews] = useState([]);
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/add" element={<AddReview addReview={addReview} />} />
         <Route path="/reviews" element={<MoviesReview reviews={reviews} />} />
         <Route path="/reviews/:id" element={<MovieDetails reviews={reviews} />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </Router>
   );

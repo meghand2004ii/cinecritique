@@ -1,0 +1,119 @@
+.login-container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 30px 40px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .login-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .login-container input {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 18px;
+    border-radius: 6px;
+    border: 1.5px solid #aaa;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .login-container input:focus {
+    border-color: #2196F3;
+    outline: none;
+    box-shadow: 0 0 8px rgba(33, 150, 243, 0.3);
+  }
+  
+  .login-container button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+  }
+  
+  .login-container button[type="submit"]:hover {
+    background-color: #0b7dda;
+  }
+  
+  /* Message text styling */
+  .login-container p.message {
+    text-align: center;
+    padding: 10px;
+    margin: 0 0 15px 0;
+    border-radius: 6px;
+    font-weight: 600;
+  }
+  
+  .login-container p.message.error {
+    color: #b00020;
+    background-color: #fce4e4;
+    border: 1px solid #b00020;
+  }
+  
+  .login-container p.message.success {
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+  }
+  
+  /* Container for the register/login toggle */
+  .login-toggle {
+    text-align: center;
+    font-size: 14px;
+    color: #444;
+  }
+  
+  .login-toggle span {
+    margin: 0 5px;
+  }
+  
+  .login-toggle button {
+    background: none;
+    border: none;
+    color: #2196F3;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 0;
+    font-size: 14px;
+    transition: color 0.2s ease;
+    text-decoration: underline;
+    font-family: inherit;
+  }
+  
+  .login-toggle button:hover {
+    color: #0b7dda;
+  }
+  
+  /* Logout button style */
+  .logout-button {
+    background-color: #f44336;
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    border: none;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .logout-button:hover {
+    background-color: #b71c1c;
+  }
+  
